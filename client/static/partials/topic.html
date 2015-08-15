@@ -1,0 +1,40 @@
+<div ng-controller="topicsController">
+	<div class="row">
+		<div class="col-md-11 header">
+			<span ng-bind="userName.name"></span>
+			<div id="topic_nav"><a href="#/dashboard">Dashboard</a> | <a href="#/">Logout</a></div>
+			<h1 class="heading">{{topic[0].username}} posted a topic:</h1>
+			<p>{{topic[0].topic}}</p>
+			<p>Desctiption: {{topic[0].description}}</p>
+		</div>
+	</div>		
+	<div class="row content">
+		<div class="col-md-10 body">
+			<!-- this is for adding new post -->
+			<form name="postForm">	
+				<div class="form-group">
+					<h4><label>Message:</label></h4>
+					<textarea type="text" name="text" class="form-control" rows="1" placeholder="Message" ng-model="newPost.text" required></textarea>
+					<input id="topic_id" type="hidden" value="{{topic_id}}">
+				</div>
+				<button type="submit" class="btn btn-primary pull-right" ng-disabled="postForm.text.$invalid" ng-click="addPost(newPost)">Post a message</button>
+			</form>
+			<hr>
+		</div>
+	</div>
+	<div class="row content">
+		<div class="col-md-10 body" ng-repeat="post in posts" ng-if="post.topic_id == topic[0]._id">
+			<div id="votes1"><a href="#/profile/{{post.name}}">{{post.name}}</a>: {{post.text}}</div>
+			<div id="votes"><span id="upvote">{{post.upvote}}</span><button ng-click="upvote(post._id)">^</button><span id="downvote">{{post.downvote}}</span><button ng-click="downvote(post._id)">v</button></div>	
+			<p style="margin-left: 30px" ng-repeat="comment in comments" ng-if="comment.post_id == post._id"><a href="#/profile/{{comment.name}}">{{comment.name}}</a>: {{comment.text}}</p>
+			<form name="myForm">
+				<div class="form-group">
+					<h4><label>Comment:</label></h4>
+					<textarea name="name" class="form-control" rows="1" placeholder="Comment" ng-model="newComment.text" required></textarea>
+				</div>
+				<input type="submit" value="Post a Comment" class="btn btn-success pull-right" ng-click="addComment(newComment, post._id)" ng-disabled="myForm.name.$invalid">
+			</form>
+			<hr>
+		</div>
+	</div>	
+</div>		

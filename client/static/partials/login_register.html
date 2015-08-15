@@ -1,0 +1,12 @@
+<div ng-controller="dashboardController">
+<h1>Hello!</h1>
+<p>Please enter your name to join and share your ideas</p>
+<form name="myForm">
+<input type="text" ng-model="newUser.name" name="name" required>
+<input type="submit" value="Enter" ng-click="welcome('/dashboard')" ng-disabled="myForm.name.$invalid">
+<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+	<span ng-show="myForm.name.$error.required">Topic is required.</span></span>
+</form>
+</div>
+
+<!-- <a href="#/dashboard"></a> -->

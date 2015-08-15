@@ -1,0 +1,11 @@
+<div ng-controller='profileController'>
+<div id="profile_nav"><a href="#/dashboard">Dashboard</a> | <a href="#/">Logout</a></div>
+
+<h1>Username: <span ng-bind="person"></span></h1>
+<h3>Posted...</h3>
+<ul>
+	<li ng-bind="topicCount + ' Topics'"></li>
+	<li ng-bind="postCount + ' Posts'"></li>
+	<li ng-bind="commentCount + ' Comments'"></li>
+</ul>
+</div>

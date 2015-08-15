@@ -1,0 +1,33 @@
+<!DOCTYPE hmtl>
+<html ng-app="myApp">
+<head>
+  <title>Angular customers</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+  <!-- load momentJS (required for angular-moment) -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+  <!-- load angular-moment -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+  <script src="script.js"></script>
+  <!-- bootstrap links -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- bootstrap links -->
+  <link rel="stylesheet" type="text/css" href="styles_dash.css">
+   <style type="text/css">
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div calss="col-md-12">
+        <div ng-app='myApp'>
+          <div ng-view="">
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

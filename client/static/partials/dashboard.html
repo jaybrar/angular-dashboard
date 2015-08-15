@@ -1,0 +1,43 @@
+<div ng-controller="dashboardController">
+<h1>Welcome, <span ng-bind="userName">!</span></h1>
+<div id="dash-search"><input type="text" ng-model="filter_name"></div>
+<table>
+	<tr>
+		<th>Category</th>
+		<th>Topic</th>
+		<th>User Name</th>
+		<th>Posts</th>
+	</tr>
+	<tr ng-repeat="topic in topics | filter:filter_name">
+		<td>{{topic.category}}</td>
+		<td><a href="#/topic/{{topic._id}}">{{topic.topic}}</a></td>
+		<td><a href="#/profile/{{topic.username}}" >{{topic.username}}</a></td>
+		<td>{{topic.num_of_posts}}</td>
+	</tr>
+</table>
+<h3>Add a new topic</h3>
+<form id="new-topic-form" name="topicForm">
+	<span style="color:red" ng-show="topicForm.topic.$dirty && topicForm.topic.$invalid">
+	<span ng-show="topicForm.topic.$error.required">Topic is required.</span></span>
+<div class="labels">Topic:</div>
+<input class="input-topic" type="text" name="topic" ng-model="newTopic.topic" required>
+<div class="labels">Description:</div>
+<input class="input-topic" type="text" name="description" ng-model="newTopic.description" required>
+<div class="labels">Category:</div>
+<select ng-model="newTopic.category" name="category" required>
+	<option value="Ruby on rails">Ruby on rails</option>
+	<option value="My SQL">My SQL</option>
+	<option value="UX">UX</option>
+	<option value="Web Development">Web Development</option>
+	<option value="Angular js">Angular js</option>
+</select>
+<input type="submit" value="Submit" ng-click="addTopic()" ng-disabled="topicForm.topic.$invalid || topicForm.description.$invalid || topicForm.category.$invalid">
+</form>
+</div>
+
+
+
+
+
+
+
